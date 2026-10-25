@@ -30,7 +30,7 @@
 	}, { threshold: 0.1 });
 
 	document.querySelectorAll(
-		'.experience-entry, .education-entry, .profile-section, .hero-info, .section-title'
+		'[data-reveal]'
 	).forEach(function (element) {
 		observer.observe(element);
 	});

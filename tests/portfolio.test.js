@@ -32,7 +32,10 @@ function setup({ reduced = false, supported = true } = {}) {
 	if (supported) window.IntersectionObserver = IntersectionObserver;
 	runInNewContext(source, {
 		window, Element, IntersectionObserver, Set,
-		document: { querySelectorAll: () => elements }
+		document: { querySelectorAll: (selector) => {
+			assert.equal(selector, '[data-reveal]');
+			return elements;
+		} }
 	});
 	return state;
 }
