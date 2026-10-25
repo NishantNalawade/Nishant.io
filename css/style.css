@@ -14,6 +14,249 @@ body {
 	font-family: 'Josefin Sans', sans-serif;
 }
 
+/* Static portfolio: content and navigation do not depend on JavaScript. */
+body.portfolio {
+	height: auto;
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	color: #40424a;
+}
+
+.portfolio h1,
+.portfolio h2,
+.portfolio h3,
+.portfolio h4 {
+	font-family: inherit;
+}
+
+.portfolio a {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	overflow-wrap: anywhere;
+}
+
+.portfolio a:focus-visible,
+.portfolio main:focus-visible {
+	outline: 3px solid #005fcc;
+	outline-offset: 5px;
+}
+
+.portfolio .skip-link {
+	position: fixed;
+	top: -100px;
+	left: 16px;
+	z-index: 10;
+	padding: 12px;
+	background: #fff;
+	color: #40424a;
+}
+
+.portfolio .skip-link:focus {
+	top: 16px;
+}
+
+.portfolio .header-section {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	padding: 28px 4%;
+	background: #481340;
+}
+
+.portfolio .brand {
+	font-size: 24px;
+	font-weight: 700;
+	color: #fff;
+}
+
+.portfolio .site-logo p {
+	margin: 8px 0 0;
+	color: #fff;
+}
+
+.portfolio .header-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 20px;
+}
+
+.portfolio .header-buttons a {
+	margin: 0;
+	color: #fff;
+}
+
+.portfolio .header-buttons .site-btn {
+	color: #40424a;
+}
+
+.portfolio .main-left-area,
+.portfolio .main-right-area {
+	padding: 48px clamp(20px, 4vw, 64px);
+}
+
+.portfolio .main-left-area {
+	background: linear-gradient(160deg, #481340, #9b1946);
+	color: #fff;
+}
+
+.portfolio .main-left-area h1,
+.portfolio .main-left-area h2,
+.portfolio .main-left-area p {
+	color: inherit;
+}
+
+.portfolio .main-left-area:after {
+	display: none;
+}
+
+.portfolio .hero-image {
+	padding: 0;
+	margin-bottom: 32px;
+}
+
+.portfolio .hero-image img {
+	display: block;
+	width: 100%;
+	max-width: 420px;
+	height: auto;
+	border-radius: 12px;
+}
+
+.portfolio .hero-text {
+	margin-bottom: 32px;
+}
+
+.portfolio h1 {
+	font-size: clamp(36px, 4vw, 64px);
+	margin-bottom: 20px;
+	overflow-wrap: anywhere;
+}
+
+.portfolio .hero-text p,
+.portfolio p,
+.portfolio li,
+.portfolio dd {
+	font-size: 17px;
+	line-height: 1.7;
+}
+
+.portfolio p {
+	color: #50515a;
+}
+
+.portfolio .role,
+.portfolio .job-title {
+	font-weight: 700;
+}
+
+.portfolio h2 {
+	font-size: 30px;
+}
+
+.portfolio h3 {
+	font-size: 25px;
+	margin-bottom: 12px;
+}
+
+.portfolio h4 {
+	font-size: 19px;
+	margin: 24px 0 12px;
+}
+
+.portfolio .hero-info h2,
+.portfolio .profile-section h2 {
+	margin-bottom: 24px;
+}
+
+.portfolio .main-left-area a {
+	color: #fff;
+}
+
+.portfolio .main-left-area a:focus-visible {
+	outline-color: #fff;
+}
+
+.portfolio dl {
+	margin: 0;
+}
+
+.portfolio dt {
+	font-weight: 700;
+}
+
+.portfolio dd {
+	margin: 4px 0 20px;
+	overflow-wrap: anywhere;
+}
+
+.portfolio .profile-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+}
+
+.portfolio .profile-section {
+	margin-top: 48px;
+}
+
+.portfolio .impact-list {
+	list-style: none;
+}
+
+.portfolio .impact-list li {
+	margin-bottom: 24px;
+}
+
+.portfolio .impact-list strong {
+	display: block;
+	font-size: 24px;
+}
+
+.portfolio .resume-section {
+	margin-bottom: 48px;
+}
+
+.portfolio .section-title h2 {
+	margin-bottom: 32px;
+	padding-bottom: 10px;
+}
+
+.portfolio .experience-entry,
+.portfolio .education-entry {
+	margin-bottom: 36px;
+}
+
+.portfolio .date {
+	color: #9b1946;
+	font-weight: 700;
+}
+
+.portfolio .detail-list {
+	padding-left: 22px;
+}
+
+.portfolio .detail-list li {
+	margin-bottom: 16px;
+}
+
+.portfolio .footer-section {
+	padding: 32px 16px;
+}
+
+@media (max-width: 479px) {
+	.portfolio .header-buttons {
+		gap: 16px;
+	}
+
+	.portfolio .header-buttons .site-btn {
+		width: 100%;
+		min-width: 0;
+	}
+}
+
 h1,
 h2,
 h3,
