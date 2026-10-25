@@ -79,6 +79,31 @@ class WebsiteTests(unittest.TestCase):
             "https://github.com/nishant-nalawade",
         }.issubset(links))
 
+    def test_architecture_explorer_has_native_accessible_controls(self):
+        page = Page(ROOT / "index.html")
+        radios = [attrs for tag, attrs in page.elements
+                  if tag == "input" and attrs.get("type") == "radio"]
+        self.assertEqual(len(radios), 2)
+        self.assertEqual({attrs["name"] for attrs in radios}, {"architecture-mode"})
+        self.assertEqual({attrs["value"] for attrs in radios}, {"before", "after"})
+        self.assertEqual([attrs["value"] for attrs in radios if "checked" in attrs],
+                         ["after"])
+        labels = {attrs.get("for") for tag, attrs in page.elements if tag == "label"}
+        self.assertEqual({attrs["id"] for attrs in radios}, labels)
+        details = sum(tag == "details" for tag, _ in page.elements)
+        self.assertGreaterEqual(details, 8)
+        self.assertEqual(details, sum(tag == "summary" for tag, _ in page.elements))
+        self.assertIn("not live telemetry", " ".join(page.text))
+
+    def test_mission_control_is_self_contained(self):
+        page = Page(ROOT / "index.html")
+        styles = [attrs["href"] for tag, attrs in page.elements
+                  if tag == "link" and attrs.get("rel") == "stylesheet"]
+        self.assertEqual(styles, ["css/mission-control.css"])
+        self.assertTrue(any("data-reveal" in attrs for _, attrs in page.elements))
+        self.assertFalse(any(key.startswith("on")
+                             for _, attrs in page.elements for key in attrs))
+
     def test_legacy_page_routes_to_current_portfolio_without_scripts(self):
         page = Page(ROOT / "home1.html")
         self.assertTrue(any(
