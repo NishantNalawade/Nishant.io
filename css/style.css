@@ -33,13 +33,9 @@ body.portfolio {
 }
 
 .portfolio a {
-	text-decoration: none;
+	text-decoration: underline;
 	text-underline-offset: 3px;
 	overflow-wrap: anywhere;
-}
-
-.portfolio a:hover {
-	text-decoration: underline;
 }
 
 .portfolio a:focus-visible,
